@@ -4,6 +4,8 @@
 
 replicaCount: 3
 
+namespace: helm-test-china
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent

@@ -5,6 +5,7 @@ metadata:
   name: {{ include "infra-demo.fullname" . }}
   labels:
     {{- include "infra-demo.labels" . | nindent 4 }}
+  namespace: {{ .Values.namespace }}
 data:
   {{- range $name, $config := .Values.configmap.values }}
   {{ $name }}: {{ $config | quote }}

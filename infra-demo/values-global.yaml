@@ -4,6 +4,8 @@
 
 replicaCount: 3
 
+namespace: helm-test-global
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent
