@@ -1,0 +1,13 @@
+{{- if .Values.configmap.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "infra-demo.name" . }}
+  labels:
+    {{- include "infra-demo.labels" . | nindent 4 }}
+  namespace: {{ .Values.namespace }}
+data:
+  {{- range $name, $config := .Values.configmap.values }}
+  {{ $name }}: {{ $config | quote }}
+  {{- end }}
+{{- end }}
